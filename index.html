@@ -299,7 +299,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-06c566e3.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
@@ -312,16 +312,16 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#introduccion" class="toc-h1 toc-link" data-title="Introducción">Introducción</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#autenticacion" class="toc-h1 toc-link" data-title="Autenticación">Autenticación</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#transacciones" class="toc-h1 toc-link" data-title="Transacciones">Transacciones</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#insertar-transaccion-con-ficha-de-cliente" class="toc-h2 toc-link" data-title="Insertar Transacción con Ficha de Cliente">Insertar Transacción con Ficha de Cliente</a>
                   </li>
                   <li>
                     <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
@@ -343,43 +343,21 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='introduccion'>Introducción</h1>
+<p>Bienvenido a la API de Regcheq! Acá puedes encontrar la información necesaria para conectarte a la aplicación de Regcheq a través de la API externa, para ingresar transacciones y fichas de cliente.</p>
 
 <p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='autenticacion'>Autenticación</h1>
+<p>Regcheq usa API keys para permitir el acceso a la API. Puedes solicitar la API key enviando una solicitud en <a href="https://regcheq.com/customer-support/">Soporte Regcheq</a>.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>Se requiere incluir la API key en todas las llamadas al servidor, al final endpoint, como se muestra a continuación:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>https://external-api.regcheq.com/operation/apiKeyRegcheq</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='transacciones'>Transacciones</h1><h2 id='insertar-transaccion-con-ficha-de-cliente'>Insertar Transacción con Ficha de Cliente</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
@@ -389,51 +367,181 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://external-api.regcheq.com/operation/apiKeyRegcheq</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="nx">payload</span><span class="p">);</span>
+
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Ejemplo de payload:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"183919377"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">98765432</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">99999</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Nombres"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"Apellidos Paternos"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"Apellidos Maternos"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"personType"</span><span class="p">:</span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"position"</span><span class="p">:</span><span class="s2">"ABC"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"completada"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nationality"</span><span class="p">:</span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"gender"</span><span class="p">:</span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"representativeDni"</span><span class="p">:</span><span class="s2">""</span><span class="w"> </span><span class="err">/Representante</span><span class="w"> </span><span class="err">Legal</span><span class="w"> </span><span class="err">si</span><span class="w"> </span><span class="err">es</span><span class="w"> </span><span class="err">persona</span><span class="w"> </span><span class="err">jurídica</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+  </span><span class="nl">"transactions"</span><span class="p">:{</span><span class="w">
+        </span><span class="err">referenceNumber:</span><span class="w"> </span><span class="s2">"NroRef"</span><span class="p">,</span><span class="w"> </span><span class="err">/Número</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">Referncia</span><span class="w"> </span><span class="err">interno</span><span class="w"> </span><span class="err">del</span><span class="w"> </span><span class="err">cliente</span><span class="w">
+        </span><span class="err">transactionComments:</span><span class="w"> </span><span class="s2">"Comentarios Transacción"</span><span class="p">,</span><span class="w">
+        </span><span class="err">transactionType:</span><span class="w"> </span><span class="s2">"Cesión de Credito"</span><span class="p">,</span><span class="w">
+        </span><span class="err">transactionDate:</span><span class="w"> </span><span class="s2">"2021-05-19T18:40:57.799Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">  
 </span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
+<p>Este endpoint registra una transacción en la aplicación de Regcheq. </p>
+
+<p>Las transacciones pueden incluir entre 1 y 5 asociados u &#39;operations&#39; (personas naturales o jurídicas que participan de la transacción) y una transacción o &#39;transactions&#39;.</p>
+
+<p>Cada asociado en &#39;operations&#39; puede opcionalmente (recomendado) incluir los datos de la ficha del cliente</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p><code>POST https://external-api.regcheq.com/operation/apiKeyRegcheq</code></p>
+<h3 id='parametros-de-la-consulta'>Parámetros de la consulta</h3>
+<p>Cada consulta tiene un arreglo de &#39;operations&#39; y una &#39;transactions&#39;</p>
+<h3 id='parametros-de-39-operations-39'>Parámetros de &#39;operations&#39;</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>Parámetro</th>
+<th>Descripción</th>
+<th>Valores</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>rut</td>
+<td>Rut de la persona</td>
+<td>Texto sin puntos ni dígito verificador &quot;12345697k&quot;. Debe ser un rut válido.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>type</td>
+<td>Tipo de persona</td>
+<td>&#39;natural&#39; o &#39;legal&#39; según si es persona natural o jurídica.</td>
+</tr>
+<tr>
+<td>monto</td>
+<td>monto del asociado</td>
+<td>Número.</td>
+</tr>
+<tr>
+<td>efective</td>
+<td>monto en efectivo</td>
+<td>Número, no puede ser mayor que el monto.</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>moneda</td>
+<td>&quot;$&quot; para peso chileno, &quot;usd&quot; para dólar y &quot;UF&quot; para UF.</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-de-ficha'>Parámetros de Ficha</h3>
+<table><thead>
+<tr>
+<th>Parámetro</th>
+<th>Descripción</th>
+<th>Valores</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Nombres</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>fatherName</td>
+<td>Apellido paterno</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>motherName</td>
+<td>Apellido materno</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>personType</td>
+<td>Tipo de persona</td>
+<td>&#39;natural&#39; o &#39;legal&#39; según si es persona natural o jurídica.</td>
+</tr>
+<tr>
+<td>position</td>
+<td>Cargo o posición</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>completada</td>
+<td>Default true</td>
+<td>true.</td>
+</tr>
+<tr>
+<td>nationality</td>
+<td>Nacionalidad</td>
+<td>String, nombre del país con la primera letra en mayúscula.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Correo electrónico</td>
+<td>String, ejemplo@empresa.com</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>Sexo</td>
+<td>&quot;male&quot;,&quot;female&quot;</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Dirección</td>
+<td>String</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>Teléfono</td>
+<td>String, &quot;+56995799788&quot;</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-de-transaccion'>Parámetros de Transacción</h3>
+<table><thead>
+<tr>
+<th>Parámetro</th>
+<th>Descripción</th>
+<th>Valores</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>referenceNumber</td>
+<td>Número de Referencia interno del cliente</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>transactionComments</td>
+<td>Comentarios. Se recomienda agregar información relevante para la UAF, como datos de la transacción y referencias o links a documentos</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>transactionType</td>
+<td>Tipo de operación</td>
+<td>Cesión de Credito, Compraventa, Compraventa de Instrumento Financiero, Compraventa de Inmueble, Compraventa de Vehiculo, Contrato de Arriendo, Intermediación Arriendo, Intermediación Compraventa, Crédito, Depósito, Depósito de Valores, Exportación, Factoring, Fichas de Casino, Hipoteca, Importación, Inversiones, Leasing, Mutuo, Operación de Cambio, Pago, Prenda, Póliza de Seguro, Promesa de Compraventa, Reserva, Remesa de Dinero, Otros, Crédito, Dación en pago, Finiquito, Pago con subrogación, Retiro</td>
+</tr>
+<tr>
+<td>transactionDate</td>
+<td>Fecha de la transacción</td>
+<td>&#39;natural&#39; o &#39;legal&#39; según si es persona natural o jurídica.</td>
 </tr>
 </tbody></table>
 
