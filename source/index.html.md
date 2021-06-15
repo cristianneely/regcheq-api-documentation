@@ -2,9 +2,6 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
   - javascript
 
 toc_footers:
@@ -42,25 +39,6 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 
 ## Insertar Transacción con Ficha de Cliente
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
 ```javascript
 const axios = require('axios');
 
@@ -81,18 +59,18 @@ await axios.post(api,payload);
       "efective": 99999,
       "currency": "$",
       "ficha": {
-                "name":"Nombres",
-                "fatherName":"Apellidos Paternos",
-                "motherName":"Apellidos Maternos",
+                "name":"Juan",
+                "fatherName":"Perez",
+                "motherName":"Gonzalez",
                 "personType":"natural",
                 "position":"ABC",
                 "completada":true,
                 "nationality":"Chile",
                 "email":"example@aaa.cl",
                 "gender":"male",
-                "address":"A",
-                "phone":"0",
-                "representativeDni":"" /Representante Legal si es persona jurídica
+                "address":"Avenida Kennedy 1209",
+                "phone":"+56995799767",
+                "representativeDni":"163698536" 
             }
     }
   ]
