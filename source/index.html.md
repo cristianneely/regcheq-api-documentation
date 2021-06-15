@@ -8,8 +8,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/slatedocs/slate'>Regcheq</a> 2021
+  - <a href='https://regcheq.com/customer-support/'>Contáctanos</a>
 
 includes:
   - errors
@@ -21,9 +21,9 @@ code_clipboard: true
 
 # Introducción
 
-Bienvenido a la API de Regcheq! Acá puedes encontrar la información necesaria para conectarte a la aplicación de Regcheq a través de la API externa, para ingresar transacciones y fichas de cliente.
+Bienvenido a la API de Regcheq. Acá puedes encontrar la información necesaria para conectarte a la aplicación de Regcheq a través de la API externa, para ingresar transacciones y fichas de cliente.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Esta API está en proceso de mejora constante por lo que la documentación también va cambiando en el tiempo.
 
 # Autenticación
 
@@ -152,113 +152,8 @@ Parámetro | Descripción | Valores
 referenceNumber | Número de Referencia interno del cliente | String.
 transactionComments | Comentarios. Se recomienda agregar información relevante para la UAF, como datos de la transacción y referencias o links a documentos | String.
 transactionType | Tipo de operación | Cesión de Credito, Compraventa, Compraventa de Instrumento Financiero, Compraventa de Inmueble, Compraventa de Vehiculo, Contrato de Arriendo, Intermediación Arriendo, Intermediación Compraventa, Crédito, Depósito, Depósito de Valores, Exportación, Factoring, Fichas de Casino, Hipoteca, Importación, Inversiones, Leasing, Mutuo, Operación de Cambio, Pago, Prenda, Póliza de Seguro, Promesa de Compraventa, Reserva, Remesa de Dinero, Otros, Crédito, Dación en pago, Finiquito, Pago con subrogación, Retiro
-transactionDate | Fecha de la transacción | 'natural' o 'legal' según si es persona natural o jurídica.
+transactionDate | Fecha de la transacción | "2021-05-19T18:40:57.799Z" Se puede omitir la hora.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Con este único método es suficiente para registrar todo tipo de transacciones, de una o varias personas, jurídicas y naturales.
 </aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
