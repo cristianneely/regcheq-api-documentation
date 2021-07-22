@@ -164,7 +164,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 ## Ejemplos
 
 
-> 1. Formato Mínimo
+> 1- Formato Mínimo
 
 ```json
 {
@@ -179,7 +179,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
   ]
 }
 ```
-> 2. Formato con datos de la ficha, sin datos de operación ni del sujeto conductor.
+> 2- Formato con datos de la ficha, sin datos de operación ni del sujeto conductor.
 
 ```json
 {
@@ -208,7 +208,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
   ]
 }
 ```
-> 3. Formato con datos de ficha y detalle de operación (Caso óptimo para operaciones sin efectivo).
+> 3- Formato con datos de ficha y detalle de operación (Caso óptimo para operaciones sin efectivo).
 
 ```json
 {
@@ -243,7 +243,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
   }
 }
 ```
-> 4. Formato sin datos de ficha con datos de transacción.
+> 4- Formato sin datos de ficha con datos de transacción.
 
 ```json
 {
@@ -264,7 +264,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
   }
 }
 ```
-> 5. Formato con sujeto conductor sin datos de ficha y sin datos de operación.
+> 5- Formato con sujeto conductor sin datos de ficha y sin datos de operación.
 
 ```json
 {
@@ -286,7 +286,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
    }
 }
 ```
-> 6. Formato con datos de sujeto conductor con datos de ficha sin datos de transacción.
+> 6- Formato con datos de sujeto conductor con datos de ficha sin datos de transacción.
 
 ```json
 {
@@ -322,7 +322,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
  }
 }
 ```
-> 7. Formato completo (Caso óptimo para operaciones con efectivo).
+> 7- Formato completo (Caso óptimo para operaciones con efectivo).
 
 ```json
 {
