@@ -321,7 +321,10 @@
                     <a href="#insertar-transaccion" class="toc-h2 toc-link" data-title="Insertar Transacción">Insertar Transacción</a>
                   </li>
                   <li>
-                    <a href="#ejemplos" class="toc-h2 toc-link" data-title="Ejemplos">Ejemplos</a>
+                    <a href="#ejemplos-de-operaciones-con-persona-natural" class="toc-h2 toc-link" data-title="Ejemplos de operaciones con persona natural">Ejemplos de operaciones con persona natural</a>
+                  </li>
+                  <li>
+                    <a href="#ejemplos-de-operaciones-con-persona-juridica" class="toc-h2 toc-link" data-title="Ejemplos de operaciones con persona jurídica">Ejemplos de operaciones con persona jurídica</a>
                   </li>
               </ul>
           </li>
@@ -342,7 +345,10 @@
 
 <p>Esta API está en proceso de mejora constante por lo que la documentación también puede actualizarse.</p>
 <h1 id='autenticacion'>Autenticación</h1>
-<p>Regcheq usa API keys para permitir el acceso a la API. Puedes solicitar la API key enviando una solicitud en <a href="https://regcheq.com/customer-support/">Soporte Regcheq</a>.</p>
+<p>Regcheq usa API keys para permitir el acceso a la API. 
+<aside class="notice">
+Para obtener tu API key debes ingresar a la plataforma de Regcheq, hacer click en el ícono de arriba a la derecha y luego seleccionar &quot;API Externa&quot;.
+</aside></p>
 
 <p>Se requiere incluir la API key en todas las llamadas al servidor, al final endpoint, como se muestra a continuación:</p>
 
@@ -358,7 +364,7 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 
 </code></pre></div>
 <blockquote>
-<p>Ejemplo de payload:</p>
+<p>Ejemplo de payload con <strong>persona natural</strong>:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
@@ -379,8 +385,7 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
                 </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"gender"</span><span class="p">:</span><span class="s2">"male"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"representativeDni"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
             </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -399,19 +404,75 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">  
 </span></code></pre></div>
+<blockquote>
+<p>Ejemplo de payload con <strong>persona jurídica</strong>:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"bussinesType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fantasyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nationality"</span><span class="p">:</span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"socialReason"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"legalRepresentatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"transactions"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NroRef"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hola"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cesión de Credito"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-19T18:40:57.799Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"transporter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nationality"</span><span class="p">:</span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportName"</span><span class="p">:</span><span class="s2">"Marcos"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportFatherName"</span><span class="p">:</span><span class="s2">"Saez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportMotherName"</span><span class="p">:</span><span class="s2">"Castro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportDni"</span><span class="p">:</span><span class="s2">"165376536"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w"> 
+</span></code></pre></div>
 <p>Este endpoint registra una transacción en la aplicación de Regcheq. </p>
 
-<p>Es importante considerar las siguientes condiciones:
-- Las transacciones pueden incluir entre 1 y 5 asociados u &#39;operations&#39; (personas naturales o jurídicas que participan de la transacción) y una transacción o &#39;transactions&#39;.
-- Cada asociado en &#39;operations&#39; debe incluir obligatoriamente los datos mínimos:
-  - Rut.
-  - Tipo de Persona (natural o jurídica).
-  - Monto de la transacción.
-  - Monto en efectivo.
-  - Tipo de moneda
-- Cada asociado en &#39;operations&#39; puede opcionalmente incluir los datos de la ficha del cliente (recomendado).
-- Cada asociado en &#39;operations&#39; puede opcionalmente incluir los datos del detalle de la transacción (recomendado).
-- Cada asociado en &#39;operations&#39; puede opcionalmente incluir los datos del sujeto conductor (Aplicable para los asociados con montos en efectivo mayores a 0).</p>
+<p>Es importante considerar las siguientes condiciones:</p>
+
+<ul>
+<li>Las transacciones pueden incluir entre 1 y 5 asociados u &#39;operations&#39; (personas <strong>naturales</strong> o <strong>jurídicas</strong> que participan de la transacción) y una transacción o &#39;transactions&#39;.</li>
+<li>Cada asociado en &#39;operations&#39; debe incluir obligatoriamente los datos mínimos:
+
+<ul>
+<li>Rut.</li>
+<li>Tipo de Persona (natural o jurídica).</li>
+<li>Monto de la transacción.</li>
+<li>Monto en efectivo.</li>
+<li>Tipo de moneda</li>
+<li>Rut de Representante Legal (sólo para persona jurídica)</li>
+</ul></li>
+<li>Cada asociado en &#39;operations&#39; debe llevar un Representante legal <em>legalRepresentatives</em> con al menos el rut, y opcionalmente el Nombre, Apellido Paterno y Apellido Materno.</li>
+<li>Cada asociado en &#39;operations&#39; puede opcionalmente incluir los datos de la ficha del cliente (recomendado).</li>
+<li>Cada asociado en &#39;operations&#39; puede opcionalmente incluir los datos del detalle de la transacción (recomendado).</li>
+<li>Cada asociado en &#39;operations&#39; puede opcionalmente incluir los datos del sujeto conductor (Aplicable para los asociados con montos en efectivo mayores a 0).</li>
+</ul>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://external-api.regcheq.com/operation/apiKeyRegcheq</code></p>
 <h3 id='parametros-de-la-consulta'>Parámetros de la consulta</h3>
@@ -450,7 +511,7 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 <td>&quot;$&quot; para peso chileno, &quot;usd&quot; para dólar y &quot;UF&quot; para UF.</td>
 </tr>
 </tbody></table>
-<h3 id='parametros-de-ficha-quot-ficha-quot'>Parámetros de Ficha (&quot;ficha&quot;)</h3>
+<h3 id='parametros-de-ficha-quot-ficha-quot-para-persona-natural'>Parámetros de Ficha (&quot;ficha&quot;) para <strong>Persona Natural</strong></h3>
 <table><thead>
 <tr>
 <th>Parámetro</th>
@@ -476,7 +537,7 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 <tr>
 <td>personType</td>
 <td>Tipo de persona</td>
-<td>&#39;natural&#39; o &#39;legal&#39; según si es persona natural o jurídica.</td>
+<td>&#39;natural&#39; en este caso.</td>
 </tr>
 <tr>
 <td>position</td>
@@ -514,6 +575,93 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 <td>String, &quot;+56995799788&quot;</td>
 </tr>
 </tbody></table>
+<h3 id='parametros-de-ficha-quot-ficha-quot-para-persona-juridica'>Parámetros de Ficha (&quot;ficha&quot;) para <strong>Persona Jurídica</strong></h3>
+<table><thead>
+<tr>
+<th>Parámetro</th>
+<th>Descripción</th>
+<th>Valores</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Nombres</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>bussinesType</td>
+<td>Giro o Rubro</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>fantasyName</td>
+<td>Nombre de Fantasía</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>personType</td>
+<td>Tipo de persona</td>
+<td>&#39;legal&#39; en este caso.</td>
+</tr>
+<tr>
+<td>completada</td>
+<td>Default true</td>
+<td>true.</td>
+</tr>
+<tr>
+<td>nationality</td>
+<td>Nacionalidad</td>
+<td>String, nombre del país con la primera letra en mayúscula.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Correo electrónico</td>
+<td>String, ejemplo@empresa.com.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>Dirección</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>Teléfono</td>
+<td>String, con formato &quot;+56995799788&quot;.</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-de-representantes-legales-quot-legalrepresentatives-quot-solo-para-persona-juridica'>Parámetros de Representantes Legales (&quot;legalRepresentatives&quot;) (Sólo para Persona Jurídica)</h3>
+<table><thead>
+<tr>
+<th>Parámetro</th>
+<th>Descripción</th>
+<th>Valores</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>run</td>
+<td>Rut del representante legal</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Nombres</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>fatherName</td>
+<td>Apellido paterno</td>
+<td>String.</td>
+</tr>
+<tr>
+<td>motherName</td>
+<td>Apellido materno</td>
+<td>String.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Los asociados que sean personas jurídicas deben llevar al menos un representante legal, y estos este deben llevar al menos el rut.
+</aside>
 <h3 id='parametros-de-transaccion-quot-transactions-quot'>Parámetros de Transacción (&quot;transactions&quot;)</h3>
 <table><thead>
 <tr>
@@ -576,11 +724,9 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 <aside class="success">
 Con este único método es suficiente para registrar todo tipo de transacciones, de una o varias personas, jurídicas y naturales.
 </aside>
-<h2 id='ejemplos'>Ejemplos</h2>
+<h2 id='ejemplos-de-operaciones-con-persona-natural'>Ejemplos de operaciones con persona natural</h2>
 <blockquote>
-<ol>
-<li>Formato Mínimo</li>
-</ol>
+<p>1- Formato Mínimo</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
@@ -595,9 +741,234 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<ol>
-<li>Formato con datos de la ficha, sin datos de operación ni del sujeto conductor.</li>
-</ol>
+<p>2- Formato sin datos de la ficha, con datos de operación y sujeto conductor.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"legalRepresentatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"transactions"</span><span class="p">:{</span><span class="w">
+          </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NroRef"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hola"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cesión de Credito"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-19T18:40:57.799Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"transporter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"nationality"</span><span class="p">:</span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transportName"</span><span class="p">:</span><span class="s2">"Marcos"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transportFatherName"</span><span class="p">:</span><span class="s2">"Saez"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transportMotherName"</span><span class="p">:</span><span class="s2">"Castro"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transportDni"</span><span class="p">:</span><span class="s2">"165376536"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<blockquote>
+<p>3- Formato con datos de ficha y sin detalle de operación.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"bussinesType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa2"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"fantasyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"nationality"</span><span class="p">:</span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"socialReason"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"legalRepresentatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"transporter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"nationality"</span><span class="p">:</span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transportName"</span><span class="p">:</span><span class="s2">"Marcos"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transportFatherName"</span><span class="p">:</span><span class="s2">"Saez"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transportMotherName"</span><span class="p">:</span><span class="s2">"Castro"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transportDni"</span><span class="p">:</span><span class="s2">"165376536"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<blockquote>
+<p>4- Formato con datos de ficha y con datos de transacción, sin datos de sujeto conductor (Caso óptimo para operaciones con persona jurídica sin efectivo).</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"bussinesType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa2"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"fantasyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"nationality"</span><span class="p">:</span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"socialReason"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"legalRepresentatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"transactions"</span><span class="p">:{</span><span class="w">
+          </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NroRef"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hola"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cesión de Credito"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-19T18:40:57.799Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<blockquote>
+<p>5- Formato completo (Caso óptimo para operaciones con persona jurídica y con efectivo).</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"bussinesType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fantasyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nationality"</span><span class="p">:</span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"socialReason"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"legalRepresentatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"transactions"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NroRef"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hola"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cesión de Credito"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-19T18:40:57.799Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"transporter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nationality"</span><span class="p">:</span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportName"</span><span class="p">:</span><span class="s2">"Marcos"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportFatherName"</span><span class="p">:</span><span class="s2">"Saez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportMotherName"</span><span class="p">:</span><span class="s2">"Castro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportDni"</span><span class="p">:</span><span class="s2">"165376536"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>En esta sección se muestran diferentes ejemplos de consultas con persona jurídica. </p>
+
+<table><thead>
+<tr>
+<th>Caso</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>Formato Mínimo</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Formato sin datos de la ficha, con datos de operación y sujeto conductor..</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Formato con datos de ficha y sin detalle de operación.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Formato con datos de ficha y con datos de transacción, sin datos de sujeto conductor (Caso óptimo para operaciones con persona jurídica sin efectivo).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Formato completo (Caso óptimo para operaciones con efectivo).</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 es el ideal para los casos en que las operaciones no sean en efectivo, y el caso 7 para las operaciones en efectivo.
+</aside>
+<h2 id='ejemplos-de-operaciones-con-persona-juridica'>Ejemplos de operaciones con persona jurídica</h2>
+<blockquote>
+<p>1- Formato Mínimo</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+
+      </span><span class="nl">"legalRepresentatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>2- Formato con datos de la ficha, sin datos de operación ni del sujeto conductor.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
@@ -618,17 +989,14 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
                 </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"gender"</span><span class="p">:</span><span class="s2">"male"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"representativeDni"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
             </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<ol>
-<li>Formato con datos de ficha y detalle de operación (Caso óptimo para operaciones sin efectivo).</li>
-</ol>
+<p>3- Formato con datos de ficha y detalle de operación (Caso óptimo para operaciones sin efectivo).</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
@@ -649,8 +1017,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
                 </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"gender"</span><span class="p">:</span><span class="s2">"male"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"representativeDni"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
             </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -663,9 +1030,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<ol>
-<li>Formato sin datos de ficha con datos de transacción.</li>
-</ol>
+<p>4- Formato sin datos de ficha con datos de transacción.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
@@ -686,9 +1051,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<ol>
-<li>Formato con sujeto conductor sin datos de ficha y sin datos de operación.</li>
-</ol>
+<p>5- Formato con sujeto conductor sin datos de ficha y sin datos de operación.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
@@ -710,9 +1073,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<ol>
-<li>Formato con datos de sujeto conductor con datos de ficha sin datos de transacción.</li>
-</ol>
+<p>6- Formato con datos de sujeto conductor con datos de ficha sin datos de transacción.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
@@ -733,8 +1094,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
                 </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"gender"</span><span class="p">:</span><span class="s2">"male"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"representativeDni"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
             </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -748,9 +1108,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<ol>
-<li>Formato completo (Caso óptimo para operaciones con efectivo).</li>
-</ol>
+<p>7- Formato completo (Caso óptimo para operaciones con efectivo).</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
@@ -771,8 +1129,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
                 </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"gender"</span><span class="p">:</span><span class="s2">"male"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"A"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"representativeDni"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
             </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -792,7 +1149,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div>
-<p>En esta sección se muestran diferentes ejemplos de consultas. </p>
+<p>En esta sección se muestran diferentes ejemplos de consultas con persona natural. </p>
 
 <table><thead>
 <tr>
