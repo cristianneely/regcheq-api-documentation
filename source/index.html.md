@@ -25,7 +25,10 @@ Esta API está en proceso de mejora constante por lo que la documentación tambi
 # Autenticación
 
 
-Regcheq usa API keys para permitir el acceso a la API. Puedes solicitar la API key enviando una solicitud en [Soporte Regcheq](https://regcheq.com/customer-support/).
+Regcheq usa API keys para permitir el acceso a la API. 
+<aside class="notice">
+Para obtener tu API key debes ingresar a la plataforma de Regcheq, hacer click en el ícono de arriba a la derecha y luego seleccionar "API Externa".
+</aside>
 
 Se requiere incluir la API key en todas las llamadas al servidor, al final endpoint, como se muestra a continuación:
 
@@ -47,7 +50,7 @@ await axios.post(api,payload);
 
 ```
 
-> Ejemplo de payload:
+> Ejemplo de payload con **persona natural**:
 
 ```json
 {
@@ -69,8 +72,7 @@ await axios.post(api,payload);
                 "email":"example@aaa.cl",
                 "gender":"male",
                 "address":"A",
-                "phone":"0",
-                "representativeDni":""
+                "phone":"0"
             }
     }
   ],
@@ -89,17 +91,67 @@ await axios.post(api,payload);
   }
 }  
 ```
+> Ejemplo de payload con **persona jurídica**:
 
+```json
+{
+  "operations":[
+    {
+      "rut": "767452136",
+      "type": "legal",
+      "monto": 13000,
+      "efective": 13000,
+      "currency": "$",
+            "ficha": {
+                "bussinesType": "Empresa2",
+                "fantasyName": "Empresa",
+                "nationality":"Chile",
+                "email":"example@aaa.cl",
+                "socialReason":"Test",
+                "address":"A",
+                "phone":"0"
+    },
+    "legalRepresentatives": [
+            {
+                "run": "115971263",
+                "name":"NameRep1",
+                "fatherName":"fathernameRep1",
+                "motherName":"mothernameRep1"
+            },
+            {
+                "run": "157126571"
+            }
+        ]
+    }
+  ],
+  "transactions":{
+        "referenceNumber": "NroRef",
+        "transactionComments": "Hola",
+        "transactionType": "Cesión de Credito",
+        "transactionDate": "2021-05-19T18:40:57.799Z"
+  },
+    "transporter": {
+        "nationality":"Chile",
+        "transportName":"Marcos",
+        "transportFatherName":"Saez",
+        "transportMotherName":"Castro",
+        "transportDni":"165376536"
+    }
+} 
+```
 Este endpoint registra una transacción en la aplicación de Regcheq. 
 
 Es importante considerar las siguientes condiciones:
-- Las transacciones pueden incluir entre 1 y 5 asociados u 'operations' (personas naturales o jurídicas que participan de la transacción) y una transacción o 'transactions'.
-- Cada asociado en 'operations' debe incluir obligatoriamente los datos mínimos:
-  - Rut.
+
+* Las transacciones pueden incluir entre 1 y 5 asociados u 'operations' (personas **naturales** o **jurídicas** que participan de la transacción) y una transacción o 'transactions'.
+* Cada asociado en 'operations' debe incluir obligatoriamente los datos mínimos:
+  * Rut.
   - Tipo de Persona (natural o jurídica).
   - Monto de la transacción.
   - Monto en efectivo.
   - Tipo de moneda
+  - Rut de Representante Legal (sólo para persona jurídica)
+- Cada asociado en 'operations' debe llevar un Representante legal *legalRepresentatives* con al menos el rut, y opcionalmente el Nombre, Apellido Paterno y Apellido Materno.
 - Cada asociado en 'operations' puede opcionalmente incluir los datos de la ficha del cliente (recomendado).
 - Cada asociado en 'operations' puede opcionalmente incluir los datos del detalle de la transacción (recomendado).
 - Cada asociado en 'operations' puede opcionalmente incluir los datos del sujeto conductor (Aplicable para los asociados con montos en efectivo mayores a 0).
@@ -123,14 +175,14 @@ monto | monto del asociado | Número.
 efective | monto en efectivo | Número, no puede ser mayor que el monto.
 currency | moneda | "$" para peso chileno, "usd" para dólar y "UF" para UF.
 
-### Parámetros de Ficha ("ficha")
+### Parámetros de Ficha ("ficha") para **Persona Natural**
 
 Parámetro | Descripción | Valores
 --------- | ------- | -----------
 name | Nombres | String.
 fatherName | Apellido paterno | String.
 motherName | Apellido materno | String.
-personType | Tipo de persona | 'natural' o 'legal' según si es persona natural o jurídica.
+personType | Tipo de persona | 'natural' en este caso.
 position | Cargo o posición | String.
 completada | Default true | true.
 nationality | Nacionalidad | String, nombre del país con la primera letra en mayúscula.
@@ -139,6 +191,31 @@ gender | Sexo | "male","female"
 address | Dirección | String
 phone | Teléfono | String, "+56995799788"
 
+### Parámetros de Ficha ("ficha") para **Persona Jurídica**
+
+Parámetro | Descripción | Valores
+--------- | ------- | -----------
+name | Nombres | String.
+bussinesType | Giro o Rubro | String.
+fantasyName | Nombre de Fantasía | String.
+personType | Tipo de persona | 'legal' en este caso.
+completada | Default true | true.
+nationality | Nacionalidad | String, nombre del país con la primera letra en mayúscula.
+email | Correo electrónico | String, ejemplo@empresa.com.
+address | Dirección | String.
+phone | Teléfono | String, con formato "+56995799788".
+### Parámetros de Representantes Legales ("legalRepresentatives") (Sólo para Persona Jurídica)
+
+Parámetro | Descripción | Valores
+--------- | ------- | -----------
+run | Rut del representante legal | String.
+name | Nombres | String.
+fatherName | Apellido paterno | String.
+motherName | Apellido materno | String.
+
+<aside class="warning">
+Los asociados que sean personas jurídicas deben llevar al menos un representante legal, y estos este deben llevar al menos el rut.
+</aside>
 ### Parámetros de Transacción ("transactions")
 
 Parámetro | Descripción | Valores
@@ -161,7 +238,7 @@ transportDni | RUT del S.C. | Texto sin puntos ni dígito verificador "12345697k
 Con este único método es suficiente para registrar todo tipo de transacciones, de una o varias personas, jurídicas y naturales.
 </aside>
 
-## Ejemplos
+## Ejemplos de operaciones con persona natural
 
 
 > 1- Formato Mínimo
@@ -178,6 +255,218 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
     }
   ]
 }
+```
+> 2- Formato sin datos de la ficha, con datos de operación y sujeto conductor.
+
+```json
+{
+    "operations":[
+      {
+        "rut": "767452136",
+        "type": "legal",
+        "monto": 13000,
+        "efective": 13000,
+        "currency": "$",
+      "legalRepresentatives": [
+              {
+                  "run": "115971263",
+                  "name":"NameRep1",
+                  "fatherName":"fathernameRep1",
+                  "motherName":"mothernameRep1"
+              },
+              {
+                  "run": "157126571"
+              }
+          ]
+      }
+    ],
+    "transactions":{
+          "referenceNumber": "NroRef",
+          "transactionComments": "Hola",
+          "transactionType": "Cesión de Credito",
+          "transactionDate": "2021-05-19T18:40:57.799Z"
+    },
+      "transporter": {
+          "nationality":"Chile",
+          "transportName":"Marcos",
+          "transportFatherName":"Saez",
+          "transportMotherName":"Castro",
+          "transportDni":"165376536"
+      }
+  }
+
+```
+> 3- Formato con datos de ficha y sin detalle de operación.
+
+```json
+{
+    "operations":[
+      {
+        "rut": "767452136",
+        "type": "legal",
+        "monto": 13000,
+        "efective": 13000,
+        "currency": "$",
+              "ficha": {
+                  "bussinesType": "Empresa2",
+                  "fantasyName": "Empresa",
+                  "nationality":"Chile",
+                  "email":"example@aaa.cl",
+                  "socialReason":"Test",
+                  "address":"A",
+                  "phone":"0"
+      },
+      "legalRepresentatives": [
+              {
+                  "run": "115971263",
+                  "name":"NameRep1",
+                  "fatherName":"fathernameRep1",
+                  "motherName":"mothernameRep1"
+              },
+              {
+                  "run": "157126571"
+              }
+          ]
+      }
+    ],
+      "transporter": {
+          "nationality":"Chile",
+          "transportName":"Marcos",
+          "transportFatherName":"Saez",
+          "transportMotherName":"Castro",
+          "transportDni":"165376536"
+      }
+  }
+
+```
+> 4- Formato con datos de ficha y con datos de transacción, sin datos de sujeto conductor (Caso óptimo para operaciones con persona jurídica sin efectivo).
+
+```json
+{
+    "operations":[
+      {
+        "rut": "767452136",
+        "type": "legal",
+        "monto": 13000,
+        "efective": 13000,
+        "currency": "$",
+              "ficha": {
+                  "bussinesType": "Empresa2",
+                  "fantasyName": "Empresa",
+                  "nationality":"Chile",
+                  "email":"example@aaa.cl",
+                  "socialReason":"Test",
+                  "address":"A",
+                  "phone":"0"
+      },
+      "legalRepresentatives": [
+              {
+                  "run": "115971263",
+                  "name":"NameRep1",
+                  "fatherName":"fathernameRep1",
+                  "motherName":"mothernameRep1"
+              },
+              {
+                  "run": "157126571"
+              }
+          ]
+      }
+    ],
+    "transactions":{
+          "referenceNumber": "NroRef",
+          "transactionComments": "Hola",
+          "transactionType": "Cesión de Credito",
+          "transactionDate": "2021-05-19T18:40:57.799Z"
+    }
+  }
+
+```
+> 5- Formato completo (Caso óptimo para operaciones con persona jurídica y con efectivo).
+
+```json
+{
+  "operations":[
+    {
+      "rut": "767452136",
+      "type": "legal",
+      "monto": 13000,
+      "efective": 13000,
+      "currency": "$",
+            "ficha": {
+                "bussinesType": "Empresa2",
+                "fantasyName": "Empresa",
+                "nationality":"Chile",
+                "email":"example@aaa.cl",
+                "socialReason":"Test",
+                "address":"A",
+                "phone":"0"
+    },
+    "legalRepresentatives": [
+            {
+                "run": "115971263",
+                "name":"NameRep1",
+                "fatherName":"fathernameRep1",
+                "motherName":"mothernameRep1"
+            },
+            {
+                "run": "157126571"
+            }
+        ]
+    }
+  ],
+  "transactions":{
+        "referenceNumber": "NroRef",
+        "transactionComments": "Hola",
+        "transactionType": "Cesión de Credito",
+        "transactionDate": "2021-05-19T18:40:57.799Z"
+  },
+    "transporter": {
+        "nationality":"Chile",
+        "transportName":"Marcos",
+        "transportFatherName":"Saez",
+        "transportMotherName":"Castro",
+        "transportDni":"165376536"
+    }
+```
+
+En esta sección se muestran diferentes ejemplos de consultas con persona jurídica. 
+
+
+Caso| Descripción 
+--------- | ------- 
+1 | Formato Mínimo
+2 | Formato sin datos de la ficha, con datos de operación y sujeto conductor..
+3 | Formato con datos de ficha y sin detalle de operación.
+4 | Formato con datos de ficha y con datos de transacción, sin datos de sujeto conductor (Caso óptimo para operaciones con persona jurídica sin efectivo).
+5 | Formato completo (Caso óptimo para operaciones con efectivo).
+
+<aside class="success">
+Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 es el ideal para los casos en que las operaciones no sean en efectivo, y el caso 7 para las operaciones en efectivo.
+</aside>
+
+## Ejemplos de operaciones con persona jurídica
+
+
+> 1- Formato Mínimo
+
+```json
+{
+    "operations":[
+      {
+        "rut": "767452136",
+        "type": "legal",
+        "monto": 13000,
+        "efective": 13000,
+        "currency": "$",
+              
+      "legalRepresentatives": [
+              {
+                  "run": "157126571"
+              }
+          ]
+      }
+    ]
+  }
 ```
 > 2- Formato con datos de la ficha, sin datos de operación ni del sujeto conductor.
 
@@ -201,8 +490,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
                 "email":"example@aaa.cl",
                 "gender":"male",
                 "address":"A",
-                "phone":"0",
-                "representativeDni":""
+                "phone":"0"
             }
     }
   ]
@@ -230,8 +518,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
                 "email":"example@aaa.cl",
                 "gender":"male",
                 "address":"A",
-                "phone":"0",
-                "representativeDni":""
+                "phone":"0"
             }
     }
   ],
@@ -308,8 +595,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
                 "email":"example@aaa.cl",
                 "gender":"male",
                 "address":"A",
-                "phone":"0",
-                "representativeDni":""
+                "phone":"0"
             }
     }
   ],
@@ -344,8 +630,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
                 "email":"example@aaa.cl",
                 "gender":"male",
                 "address":"A",
-                "phone":"0",
-                "representativeDni":""
+                "phone":"0"
             }
     }
   ],
@@ -366,7 +651,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 
 ```
 
-En esta sección se muestran diferentes ejemplos de consultas. 
+En esta sección se muestran diferentes ejemplos de consultas con persona natural. 
 
 
 Caso| Descripción 
