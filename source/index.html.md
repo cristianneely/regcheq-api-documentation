@@ -256,218 +256,6 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
   ]
 }
 ```
-> 2- Formato sin datos de la ficha, con datos de operación y sujeto conductor.
-
-```json
-{
-    "operations":[
-      {
-        "rut": "767452136",
-        "type": "legal",
-        "monto": 13000,
-        "efective": 13000,
-        "currency": "$",
-      "legalRepresentatives": [
-              {
-                  "run": "115971263",
-                  "name":"NameRep1",
-                  "fatherName":"fathernameRep1",
-                  "motherName":"mothernameRep1"
-              },
-              {
-                  "run": "157126571"
-              }
-          ]
-      }
-    ],
-    "transactions":{
-          "referenceNumber": "NroRef",
-          "transactionComments": "Hola",
-          "transactionType": "Cesión de Credito",
-          "transactionDate": "2021-05-19T18:40:57.799Z"
-    },
-      "transporter": {
-          "nationality":"Chile",
-          "transportName":"Marcos",
-          "transportFatherName":"Saez",
-          "transportMotherName":"Castro",
-          "transportDni":"165376536"
-      }
-  }
-
-```
-> 3- Formato con datos de ficha y sin detalle de operación.
-
-```json
-{
-    "operations":[
-      {
-        "rut": "767452136",
-        "type": "legal",
-        "monto": 13000,
-        "efective": 13000,
-        "currency": "$",
-              "ficha": {
-                  "bussinesType": "Empresa2",
-                  "fantasyName": "Empresa",
-                  "nationality":"Chile",
-                  "email":"example@aaa.cl",
-                  "socialReason":"Test",
-                  "address":"A",
-                  "phone":"0"
-      },
-      "legalRepresentatives": [
-              {
-                  "run": "115971263",
-                  "name":"NameRep1",
-                  "fatherName":"fathernameRep1",
-                  "motherName":"mothernameRep1"
-              },
-              {
-                  "run": "157126571"
-              }
-          ]
-      }
-    ],
-      "transporter": {
-          "nationality":"Chile",
-          "transportName":"Marcos",
-          "transportFatherName":"Saez",
-          "transportMotherName":"Castro",
-          "transportDni":"165376536"
-      }
-  }
-
-```
-> 4- Formato con datos de ficha y con datos de transacción, sin datos de sujeto conductor (Caso óptimo para operaciones con persona jurídica sin efectivo).
-
-```json
-{
-    "operations":[
-      {
-        "rut": "767452136",
-        "type": "legal",
-        "monto": 13000,
-        "efective": 13000,
-        "currency": "$",
-              "ficha": {
-                  "bussinesType": "Empresa2",
-                  "fantasyName": "Empresa",
-                  "nationality":"Chile",
-                  "email":"example@aaa.cl",
-                  "socialReason":"Test",
-                  "address":"A",
-                  "phone":"0"
-      },
-      "legalRepresentatives": [
-              {
-                  "run": "115971263",
-                  "name":"NameRep1",
-                  "fatherName":"fathernameRep1",
-                  "motherName":"mothernameRep1"
-              },
-              {
-                  "run": "157126571"
-              }
-          ]
-      }
-    ],
-    "transactions":{
-          "referenceNumber": "NroRef",
-          "transactionComments": "Hola",
-          "transactionType": "Cesión de Credito",
-          "transactionDate": "2021-05-19T18:40:57.799Z"
-    }
-  }
-
-```
-> 5- Formato completo (Caso óptimo para operaciones con persona jurídica y con efectivo).
-
-```json
-{
-  "operations":[
-    {
-      "rut": "767452136",
-      "type": "legal",
-      "monto": 13000,
-      "efective": 13000,
-      "currency": "$",
-            "ficha": {
-                "bussinesType": "Empresa2",
-                "fantasyName": "Empresa",
-                "nationality":"Chile",
-                "email":"example@aaa.cl",
-                "socialReason":"Test",
-                "address":"A",
-                "phone":"0"
-    },
-    "legalRepresentatives": [
-            {
-                "run": "115971263",
-                "name":"NameRep1",
-                "fatherName":"fathernameRep1",
-                "motherName":"mothernameRep1"
-            },
-            {
-                "run": "157126571"
-            }
-        ]
-    }
-  ],
-  "transactions":{
-        "referenceNumber": "NroRef",
-        "transactionComments": "Hola",
-        "transactionType": "Cesión de Credito",
-        "transactionDate": "2021-05-19T18:40:57.799Z"
-  },
-    "transporter": {
-        "nationality":"Chile",
-        "transportName":"Marcos",
-        "transportFatherName":"Saez",
-        "transportMotherName":"Castro",
-        "transportDni":"165376536"
-    }
-```
-
-En esta sección se muestran diferentes ejemplos de consultas con persona jurídica. 
-
-
-Caso| Descripción 
---------- | ------- 
-1 | Formato Mínimo
-2 | Formato sin datos de la ficha, con datos de operación y sujeto conductor..
-3 | Formato con datos de ficha y sin detalle de operación.
-4 | Formato con datos de ficha y con datos de transacción, sin datos de sujeto conductor (Caso óptimo para operaciones con persona jurídica sin efectivo).
-5 | Formato completo (Caso óptimo para operaciones con efectivo).
-
-<aside class="success">
-Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 es el ideal para los casos en que las operaciones no sean en efectivo, y el caso 7 para las operaciones en efectivo.
-</aside>
-
-## Ejemplos de operaciones con persona jurídica
-
-
-> 1- Formato Mínimo
-
-```json
-{
-    "operations":[
-      {
-        "rut": "767452136",
-        "type": "legal",
-        "monto": 13000,
-        "efective": 13000,
-        "currency": "$",
-              
-      "legalRepresentatives": [
-              {
-                  "run": "157126571"
-              }
-          ]
-      }
-    ]
-  }
-```
 > 2- Formato con datos de la ficha, sin datos de operación ni del sujeto conductor.
 
 ```json
@@ -651,8 +439,8 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
 
 ```
 
-En esta sección se muestran diferentes ejemplos de consultas con persona natural. 
 
+En esta sección se muestran diferentes ejemplos de consultas con persona natural.
 
 Caso| Descripción 
 --------- | ------- 
@@ -666,4 +454,215 @@ Caso| Descripción
 
 <aside class="success">
 Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 es el ideal para los casos en que las operaciones no sean en efectivo, y el caso 7 para las operaciones en efectivo.
+</aside>
+
+## Ejemplos de operaciones con persona jurídica
+
+
+> 1- Formato Mínimo
+
+```json
+{
+    "operations":[
+      {
+        "rut": "767452136",
+        "type": "legal",
+        "monto": 13000,
+        "efective": 13000,
+        "currency": "$",
+              
+      "legalRepresentatives": [
+              {
+                  "run": "157126571"
+              }
+          ]
+      }
+    ]
+  }
+```
+> 2- Formato sin datos de la ficha, con datos de operación y sujeto conductor.
+
+```json
+{
+    "operations":[
+      {
+        "rut": "767452136",
+        "type": "legal",
+        "monto": 13000,
+        "efective": 13000,
+        "currency": "$",
+      "legalRepresentatives": [
+              {
+                  "run": "115971263",
+                  "name":"NameRep1",
+                  "fatherName":"fathernameRep1",
+                  "motherName":"mothernameRep1"
+              },
+              {
+                  "run": "157126571"
+              }
+          ]
+      }
+    ],
+    "transactions":{
+          "referenceNumber": "NroRef",
+          "transactionComments": "Hola",
+          "transactionType": "Cesión de Credito",
+          "transactionDate": "2021-05-19T18:40:57.799Z"
+    },
+      "transporter": {
+          "nationality":"Chile",
+          "transportName":"Marcos",
+          "transportFatherName":"Saez",
+          "transportMotherName":"Castro",
+          "transportDni":"165376536"
+      }
+  }
+
+```
+> 3- Formato con datos de ficha y sin detalle de operación.
+
+```json
+{
+    "operations":[
+      {
+        "rut": "767452136",
+        "type": "legal",
+        "monto": 13000,
+        "efective": 13000,
+        "currency": "$",
+              "ficha": {
+                  "bussinesType": "Empresa2",
+                  "fantasyName": "Empresa",
+                  "nationality":"Chile",
+                  "email":"example@aaa.cl",
+                  "socialReason":"Test",
+                  "address":"A",
+                  "phone":"0"
+      },
+      "legalRepresentatives": [
+              {
+                  "run": "115971263",
+                  "name":"NameRep1",
+                  "fatherName":"fathernameRep1",
+                  "motherName":"mothernameRep1"
+              },
+              {
+                  "run": "157126571"
+              }
+          ]
+      }
+    ],
+      "transporter": {
+          "nationality":"Chile",
+          "transportName":"Marcos",
+          "transportFatherName":"Saez",
+          "transportMotherName":"Castro",
+          "transportDni":"165376536"
+      }
+  }
+
+```
+> 4- Formato con datos de ficha y con datos de transacción, sin datos de sujeto conductor (Caso óptimo para operaciones con persona jurídica sin efectivo).
+
+```json
+{
+    "operations":[
+      {
+        "rut": "767452136",
+        "type": "legal",
+        "monto": 13000,
+        "efective": 13000,
+        "currency": "$",
+              "ficha": {
+                  "bussinesType": "Empresa2",
+                  "fantasyName": "Empresa",
+                  "nationality":"Chile",
+                  "email":"example@aaa.cl",
+                  "socialReason":"Test",
+                  "address":"A",
+                  "phone":"0"
+      },
+      "legalRepresentatives": [
+              {
+                  "run": "115971263",
+                  "name":"NameRep1",
+                  "fatherName":"fathernameRep1",
+                  "motherName":"mothernameRep1"
+              },
+              {
+                  "run": "157126571"
+              }
+          ]
+      }
+    ],
+    "transactions":{
+          "referenceNumber": "NroRef",
+          "transactionComments": "Hola",
+          "transactionType": "Cesión de Credito",
+          "transactionDate": "2021-05-19T18:40:57.799Z"
+    }
+  }
+
+```
+> 5- Formato completo (Caso óptimo para operaciones con persona jurídica y con efectivo).
+
+```json
+{
+  "operations":[
+    {
+      "rut": "767452136",
+      "type": "legal",
+      "monto": 13000,
+      "efective": 13000,
+      "currency": "$",
+            "ficha": {
+                "bussinesType": "Empresa2",
+                "fantasyName": "Empresa",
+                "nationality":"Chile",
+                "email":"example@aaa.cl",
+                "socialReason":"Test",
+                "address":"A",
+                "phone":"0"
+    },
+    "legalRepresentatives": [
+            {
+                "run": "115971263",
+                "name":"NameRep1",
+                "fatherName":"fathernameRep1",
+                "motherName":"mothernameRep1"
+            },
+            {
+                "run": "157126571"
+            }
+        ]
+    }
+  ],
+  "transactions":{
+        "referenceNumber": "NroRef",
+        "transactionComments": "Hola",
+        "transactionType": "Cesión de Credito",
+        "transactionDate": "2021-05-19T18:40:57.799Z"
+  },
+    "transporter": {
+        "nationality":"Chile",
+        "transportName":"Marcos",
+        "transportFatherName":"Saez",
+        "transportMotherName":"Castro",
+        "transportDni":"165376536"
+    }
+```
+
+En esta sección se muestran diferentes ejemplos de consultas con persona jurídica. 
+
+Caso| Descripción 
+--------- | ------- 
+1 | Formato Mínimo
+2 | Formato sin datos de la ficha, con datos de operación y sujeto conductor..
+3 | Formato con datos de ficha y sin detalle de operación.
+4 | Formato con datos de ficha y con datos de transacción, sin datos de sujeto conductor (Caso óptimo para operaciones con persona jurídica sin efectivo).
+5 | Formato completo (Caso óptimo para operaciones con efectivo).
+
+<aside class="success">
+Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 4 es el ideal para los casos en que las operaciones no sean en efectivo, y el caso 5 para las operaciones en efectivo.
 </aside>
