@@ -111,17 +111,19 @@ await axios.post(api,payload);
                 "address":"A",
                 "phone":"0"
     },
-    "legalRepresentatives": [
-            {
-                "run": "115971263",
-                "name":"NameRep1",
-                "fatherName":"fathernameRep1",
-                "motherName":"mothernameRep1"
-            },
-            {
-                "run": "157126571"
-            }
-        ]
+    "personsRelations": [
+				{
+					"type": "representant",
+					"run": "115971263",
+          "name":"NameRep1",
+          "fatherName":"fathernameRep1",
+          "motherName":"mothernameRep1"
+				},
+				{
+					"run": "157126571",
+					"type": "beneficiary",
+				}
+			]
     }
   ],
   "transactions":{
@@ -150,8 +152,10 @@ Es importante considerar las siguientes condiciones:
   - Monto de la transacción.
   - Monto en efectivo.
   - Tipo de moneda
-  - Rut de Representante Legal (sólo para persona jurídica)
-- Cada asociado en 'operations' debe llevar un Representante legal *legalRepresentatives* con al menos el rut, y opcionalmente el Nombre, Apellido Paterno y Apellido Materno.
+- Cada asociado en 'operations' que sea persona jurídica, puede opcionalmente llevar una o varias Personas Naturales Relacionadas *personsRelations*. Cada Persona Natural Relacionada a una persona jurídica debe incluir:
+  - Rut
+  - Tipo de relación (beneficiario final o representante legal).
+  - opcionalmente el Nombre, Apellido Paterno y Apellido Materno (recomendado).
 - Cada asociado en 'operations' puede opcionalmente incluir los datos de la ficha del cliente (recomendado).
 - Cada asociado en 'operations' puede opcionalmente incluir los datos del detalle de la transacción (recomendado).
 - Cada asociado en 'operations' puede opcionalmente incluir los datos del sujeto conductor (Aplicable para los asociados con montos en efectivo mayores a 0).
@@ -204,17 +208,18 @@ nationality | Nacionalidad | String, nombre del país con la primera letra en ma
 email | Correo electrónico | String, ejemplo@empresa.com.
 address | Dirección | String.
 phone | Teléfono | String, con formato "+56995799788".
-### Parámetros de Representantes Legales ("legalRepresentatives") (Sólo para Persona Jurídica)
+### Parámetros de Personas Naturales Relacionadas ("personsRelations") (Sólo para Persona Jurídica)
 
 Parámetro | Descripción | Valores
 --------- | ------- | -----------
-run | Rut del representante legal | String.
+type | Tipo de relación | String "beneficiary" para beneficiario final o "representant" para representante legal.
+run | Rut de la persona relacionada | Texto sin puntos ni dígito verificador "12345697k". Debe ser un rut válido.
 name | Nombres | String.
 fatherName | Apellido paterno | String.
 motherName | Apellido materno | String.
 
 <aside class="warning">
-Los asociados que sean personas jurídicas deben llevar al menos un representante legal, y estos este deben llevar al menos el rut.
+Los asociados que sean personas jurídicas pueden llevar perosnas naturales relacionadas (representantes legales o beneficiarios finales), y estos este deben llevar al menos el rut y el tipo de relación.
 </aside>
 ### Parámetros de Transacción ("transactions")
 
@@ -230,7 +235,7 @@ transactionDate | Fecha de la transacción | "2021-05-19T18:40:57.799Z" Se puede
 Parámetro | Descripción | Valores
 --------- | ------- | -----------
 nationality | Nacionalidad | String, nombre del país con la primera letra en mayúscula.
-transportFatherName | Apellido paterno del S.C. | String.
+transportFatherName | Apellido paterno del S.C. | String
 transportMotherName | Apellido materno del S.C. | String.
 transportDni | RUT del S.C. | Texto sin puntos ni dígito verificador "12345697k". Debe ser un rut válido.
 
@@ -471,8 +476,9 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
         "efective": 13000,
         "currency": "$",
               
-      "legalRepresentatives": [
+      "personsRelations": [
               {
+                  "type": "representant",
                   "run": "157126571"
               }
           ]
@@ -480,7 +486,7 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
     ]
   }
 ```
-> 2- Formato sin datos de la ficha, con datos de operación y sujeto conductor.
+> 2- Formato sin datos de la ficha, con datos de operación y sujeto conductor (con 2 personas naturales relacioandas).
 
 ```json
 {
@@ -491,17 +497,19 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
         "monto": 13000,
         "efective": 13000,
         "currency": "$",
-      "legalRepresentatives": [
-              {
-                  "run": "115971263",
-                  "name":"NameRep1",
-                  "fatherName":"fathernameRep1",
-                  "motherName":"mothernameRep1"
-              },
-              {
-                  "run": "157126571"
-              }
-          ]
+      "personsRelations": [
+				{
+					"type": "representant",
+					"run": "115971263",
+          "name":"NameRep1",
+          "fatherName":"fathernameRep1",
+          "motherName":"mothernameRep1"
+				},
+				{
+					"run": "157126571",
+					"type": "beneficiary",
+				}
+			]
       }
     ],
     "transactions":{
@@ -520,7 +528,7 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
   }
 
 ```
-> 3- Formato con datos de ficha y sin detalle de operación.
+> 3- Formato con datos de ficha y sin detalle de operación (con 2 personas naturales relacioandas).
 
 ```json
 {
@@ -540,17 +548,19 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
                   "address":"A",
                   "phone":"0"
       },
-      "legalRepresentatives": [
-              {
-                  "run": "115971263",
-                  "name":"NameRep1",
-                  "fatherName":"fathernameRep1",
-                  "motherName":"mothernameRep1"
-              },
-              {
-                  "run": "157126571"
-              }
-          ]
+      "personsRelations": [
+				{
+					"type": "representant",
+					"run": "115971263",
+          "name":"NameRep1",
+          "fatherName":"fathernameRep1",
+          "motherName":"mothernameRep1"
+				},
+				{
+					"run": "157126571",
+					"type": "beneficiary",
+				}
+			]
       }
     ],
       "transporter": {
@@ -583,17 +593,19 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
                   "address":"A",
                   "phone":"0"
       },
-      "legalRepresentatives": [
-              {
-                  "run": "115971263",
-                  "name":"NameRep1",
-                  "fatherName":"fathernameRep1",
-                  "motherName":"mothernameRep1"
-              },
-              {
-                  "run": "157126571"
-              }
-          ]
+      "personsRelations": [
+				{
+					"type": "representant",
+					"run": "115971263",
+          "name":"NameRep1",
+          "fatherName":"fathernameRep1",
+          "motherName":"mothernameRep1"
+				},
+				{
+					"run": "157126571",
+					"type": "beneficiary",
+				}
+			]
       }
     ],
     "transactions":{
@@ -625,17 +637,19 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
                 "address":"A",
                 "phone":"0"
     },
-    "legalRepresentatives": [
-            {
-                "run": "115971263",
-                "name":"NameRep1",
-                "fatherName":"fathernameRep1",
-                "motherName":"mothernameRep1"
-            },
-            {
-                "run": "157126571"
-            }
-        ]
+    "personsRelations": [
+				{
+					"type": "representant",
+					"run": "115971263",
+          "name":"NameRep1",
+          "fatherName":"fathernameRep1",
+          "motherName":"mothernameRep1"
+				},
+				{
+					"run": "157126571",
+					"type": "beneficiary",
+				}
+			]
     }
   ],
   "transactions":{
@@ -658,7 +672,7 @@ En esta sección se muestran diferentes ejemplos de consultas con persona juríd
 Caso| Descripción 
 --------- | ------- 
 1 | Formato Mínimo
-2 | Formato sin datos de la ficha, con datos de operación y sujeto conductor..
+2 | Formato sin datos de la ficha, con datos de operación y sujeto conductor.
 3 | Formato con datos de ficha y sin detalle de operación.
 4 | Formato con datos de ficha y con datos de transacción, sin datos de sujeto conductor (Caso óptimo para operaciones con persona jurídica sin efectivo).
 5 | Formato completo (Caso óptimo para operaciones con efectivo).
