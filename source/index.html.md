@@ -121,7 +121,7 @@ await axios.post(api,payload);
 				},
 				{
 					"rut": "157126571",
-					"type": "beneficiary",
+					"type": ["beneficiary"],
 				}
 			]
     }
@@ -212,7 +212,7 @@ phone | Teléfono | String, con formato "+56995799788".
 
 Parámetro | Descripción | Valores
 --------- | ------- | -----------
-type | Tipo de relación | String "beneficiary" para beneficiario final y/o "representant" para representante legal.
+type | Tipo de relación | String "beneficiary" para beneficiario final y/o "representant" para representante legal, dentro de "[]" y separado por comas (ver ejemplos).
 rut | Rut de la persona relacionada | Texto sin puntos ni dígito verificador "12345697k". Debe ser un rut válido.
 name | Nombres | String.
 fatherName | Apellido paterno | String.
