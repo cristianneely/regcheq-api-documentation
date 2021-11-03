@@ -499,7 +499,7 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
         "currency": "$",
       "personsRelations": [
 				{
-					"type": ["representant","beneficary"],
+					"type": ["representant","beneficiary"],
 					"rut": "115971263",
           "name":"NameRep1",
           "fatherName":"fathernameRep1",
