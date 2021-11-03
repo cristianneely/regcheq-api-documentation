@@ -114,13 +114,13 @@ await axios.post(api,payload);
     "personsRelations": [
 				{
 					"type": "representant",
-					"run": "115971263",
+					"rut": "115971263",
           "name":"NameRep1",
           "fatherName":"fathernameRep1",
           "motherName":"mothernameRep1"
 				},
 				{
-					"run": "157126571",
+					"rut": "157126571",
 					"type": "beneficiary",
 				}
 			]
@@ -212,14 +212,14 @@ phone | Teléfono | String, con formato "+56995799788".
 
 Parámetro | Descripción | Valores
 --------- | ------- | -----------
-type | Tipo de relación | String "beneficiary" para beneficiario final o "representant" para representante legal.
-run | Rut de la persona relacionada | Texto sin puntos ni dígito verificador "12345697k". Debe ser un rut válido.
+type | Tipo de relación | String "beneficiary" para beneficiario final y/o "representant" para representante legal.
+rut | Rut de la persona relacionada | Texto sin puntos ni dígito verificador "12345697k". Debe ser un rut válido.
 name | Nombres | String.
 fatherName | Apellido paterno | String.
 motherName | Apellido materno | String.
 
 <aside class="warning">
-Los asociados que sean personas jurídicas pueden llevar perosnas naturales relacionadas (representantes legales o beneficiarios finales), y estos este deben llevar al menos el rut y el tipo de relación.
+Los asociados que sean personas jurídicas pueden llevar perosnas naturales relacionadas (representantes legales y/o beneficiarios finales), y estos este deben llevar al menos el rut y el tipo de relación.
 </aside>
 ### Parámetros de Transacción ("transactions")
 
@@ -478,8 +478,8 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
               
       "personsRelations": [
               {
-                  "type": "representant",
-                  "run": "157126571"
+                  "type": ["representant"],
+                  "rut": "157126571"
               }
           ]
       }
@@ -499,15 +499,15 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
         "currency": "$",
       "personsRelations": [
 				{
-					"type": "representant",
-					"run": "115971263",
+					"type": ["representant","beneficary"],
+					"rut": "115971263",
           "name":"NameRep1",
           "fatherName":"fathernameRep1",
           "motherName":"mothernameRep1"
 				},
 				{
-					"run": "157126571",
-					"type": "beneficiary",
+					"rut": "157126571",
+					"type": ["beneficiary"],
 				}
 			]
       }
@@ -550,15 +550,15 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
       },
       "personsRelations": [
 				{
-					"type": "representant",
-					"run": "115971263",
+					"type": ["representant","beneficiary"],
+					"rut": "115971263",
           "name":"NameRep1",
           "fatherName":"fathernameRep1",
           "motherName":"mothernameRep1"
 				},
 				{
-					"run": "157126571",
-					"type": "beneficiary",
+					"rut": "157126571",
+					"type": ["beneficiary"],
 				}
 			]
       }
@@ -595,15 +595,15 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
       },
       "personsRelations": [
 				{
-					"type": "representant",
-					"run": "115971263",
+					"type": ["representant"],
+					"rut": "115971263",
           "name":"NameRep1",
           "fatherName":"fathernameRep1",
           "motherName":"mothernameRep1"
 				},
 				{
-					"run": "157126571",
-					"type": "beneficiary",
+					"rut": "157126571",
+					"type": ["beneficiary","representant"],
 				}
 			]
       }
@@ -639,15 +639,15 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
     },
     "personsRelations": [
 				{
-					"type": "representant",
-					"run": "115971263",
+					"type": ["representant"],
+					"rut": "115971263",
           "name":"NameRep1",
           "fatherName":"fathernameRep1",
           "motherName":"mothernameRep1"
 				},
 				{
-					"run": "157126571",
-					"type": "beneficiary",
+					"rut": "157126571",
+					"type": ["beneficiary"],
 				}
 			]
     }
