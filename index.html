@@ -428,13 +428,13 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
     </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"representant"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beneficiary"</span><span class="p">,</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -648,10 +648,10 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 <tr>
 <td>type</td>
 <td>Tipo de relación</td>
-<td>String &quot;beneficiary&quot; para beneficiario final o &quot;representant&quot; para representante legal.</td>
+<td>String &quot;beneficiary&quot; para beneficiario final y/o &quot;representant&quot; para representante legal.</td>
 </tr>
 <tr>
-<td>run</td>
+<td>rut</td>
 <td>Rut de la persona relacionada</td>
 <td>Texto sin puntos ni dígito verificador &quot;12345697k&quot;. Debe ser un rut válido.</td>
 </tr>
@@ -673,7 +673,7 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 </tbody></table>
 
 <aside class="warning">
-Los asociados que sean personas jurídicas pueden llevar perosnas naturales relacionadas (representantes legales o beneficiarios finales), y estos este deben llevar al menos el rut y el tipo de relación.
+Los asociados que sean personas jurídicas pueden llevar perosnas naturales relacionadas (representantes legales y/o beneficiarios finales), y estos este deben llevar al menos el rut y el tipo de relación.
 </aside>
 <h3 id='parametros-de-transaccion-quot-transactions-quot'>Parámetros de Transacción (&quot;transactions&quot;)</h3>
 <table><thead>
@@ -991,8 +991,8 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
 
       </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
               </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"representant"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
+                  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">],</span><span class="w">
+                  </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
               </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1012,15 +1012,15 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
         </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"representant"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">,</span><span class="s2">"beneficary"</span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beneficiary"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1063,15 +1063,15 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"representant"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">,</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beneficiary"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1108,15 +1108,15 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"representant"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beneficiary"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"beneficiary"</span><span class="p">,</span><span class="s2">"representant"</span><span class="p">],</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1152,15 +1152,15 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"representant"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beneficiary"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
