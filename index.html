@@ -316,7 +316,7 @@
             <a href="#autenticacion" class="toc-h1 toc-link" data-title="Autenticación">Autenticación</a>
           </li>
           <li>
-            <a href="#transacciones" class="toc-h1 toc-link" data-title="Transacciones">Transacciones</a>
+            <a href="#transaccion-nueva" class="toc-h1 toc-link" data-title="Transacción Nueva">Transacción Nueva</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#insertar-transaccion" class="toc-h2 toc-link" data-title="Insertar Transacción">Insertar Transacción</a>
@@ -326,6 +326,28 @@
                   </li>
                   <li>
                     <a href="#ejemplos-de-operaciones-con-persona-juridica" class="toc-h2 toc-link" data-title="Ejemplos de operaciones con persona jurídica">Ejemplos de operaciones con persona jurídica</a>
+                  </li>
+                  <li>
+                    <a href="#activar-envio-de-correo-de-formularios-de-manera-automatica" class="toc-h2 toc-link" data-title="Activar envío de correo de formularios de manera automática">Activar envío de correo de formularios de manera automática</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#editar-transaccion" class="toc-h1 toc-link" data-title="Editar Transacción">Editar Transacción</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#editar-transaccion-con-id" class="toc-h2 toc-link" data-title="Editar Transacción con ID">Editar Transacción con ID</a>
+                  </li>
+                  <li>
+                    <a href="#editar-transaccion-con-numero-de-referencia" class="toc-h2 toc-link" data-title="Editar Transacción con Número de Referencia">Editar Transacción con Número de Referencia</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#consultar-transaccion" class="toc-h1 toc-link" data-title="Consultar Transacción">Consultar Transacción</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#consultar-transaccion-con-id" class="toc-h2 toc-link" data-title="Consultar Transacción con ID">Consultar Transacción con ID</a>
                   </li>
               </ul>
           </li>
@@ -358,7 +380,7 @@ Para obtener tu API key debes ingresar a la plataforma de Regcheq, hacer click e
 <aside class="notice">
 Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 </aside>
-<h1 id='transacciones'>Transacciones</h1><h2 id='insertar-transaccion'>Insertar Transacción</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+<h1 id='transaccion-nueva'>Transacción Nueva</h1><h2 id='insertar-transaccion'>Insertar Transacción</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://external-api.regcheq.com/operation/apiKeyRegcheq</span><span class="dl">'</span><span class="p">;</span>
 <span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="nx">payload</span><span class="p">);</span>
@@ -370,7 +392,7 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -411,7 +433,7 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -428,13 +450,13 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
     </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"representant"</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -494,7 +516,7 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>rut</td>
+<td>dni</td>
 <td>Rut de la persona</td>
 <td>Texto sin puntos ni dígito verificador &quot;12345697k&quot;. Debe ser un rut válido.</td>
 </tr>
@@ -651,7 +673,7 @@ Debes reemplazar <code>apiKeyRegcheq</code> con tu API key.
 <td>String &quot;beneficiary&quot; para beneficiario final y/o &quot;representant&quot; para representante legal, dentro de &quot;[]&quot; y separado por comas (ver ejemplos).</td>
 </tr>
 <tr>
-<td>rut</td>
+<td>dni</td>
 <td>Rut de la persona relacionada</td>
 <td>Texto sin puntos ni dígito verificador &quot;12345697k&quot;. Debe ser un rut válido.</td>
 </tr>
@@ -744,7 +766,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -759,7 +781,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -787,7 +809,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -821,7 +843,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -842,7 +864,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -864,7 +886,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -899,7 +921,7 @@ Con este único método es suficiente para registrar todo tipo de transacciones,
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265950388"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -983,7 +1005,7 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -992,7 +1014,7 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
       </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
               </span><span class="p">{</span><span class="w">
                   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">],</span><span class="w">
-                  </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
+                  </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="w">
               </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1005,7 +1027,7 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -1013,13 +1035,13 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
       </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">,</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -1047,7 +1069,7 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -1064,13 +1086,13 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
       </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">,</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -1092,7 +1114,7 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -1109,13 +1131,13 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
       </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">],</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"beneficiary"</span><span class="p">,</span><span class="s2">"representant"</span><span class="p">],</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -1136,7 +1158,7 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"operations"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"767452136"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"legal"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
       </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">13000</span><span class="p">,</span><span class="w">
@@ -1153,13 +1175,13 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
     </span><span class="nl">"personsRelations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"representant"</span><span class="p">],</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115971263"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"NameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="s2">"fathernameRep1"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"motherName"</span><span class="p">:</span><span class="s2">"mothernameRep1"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157126571"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"beneficiary"</span><span class="p">],</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
@@ -1212,6 +1234,469 @@ Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 2 e
 <aside class="success">
 Tus peticiones a este endpoint deberían verse como alguna de estas. El caso 4 es el ideal para los casos en que las operaciones no sean en efectivo, y el caso 5 para las operaciones en efectivo.
 </aside>
+<h2 id='activar-envio-de-correo-de-formularios-de-manera-automatica'>Activar envío de correo de formularios de manera automática</h2>
+<blockquote>
+<p>Ejemplo de Payload con envío de correo automático activado:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35671757"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nombre1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mn"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prueba0501-5"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hola"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cesión de Credito"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-19T18:40:57.799Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"transporter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marcos"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportFatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportMotherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Castro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportDni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165376536"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"sendForms"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Para las transacciones ingresadas vía API es posible activar el envío de los correos a los asociados para que puedan llenar y firmar los formularios. </p>
+
+<p>Al activarse esta opción, se enviará los correos cuando se cumplan estas condiciones:</p>
+
+<ol>
+<li>Se cumplan las reglas de negocio según lo que está configurado en la cuenta de la empresa.</li>
+<li>Se haya determinado que la persona es o no PEP por consanguineidad (puede demorar hasta 5 horas).</li>
+<li>Se tenga un correo electrónico válido del asociado.</li>
+</ol>
+
+<p>Dentro del payload, se deba agregar un objeto <em>options</em> y dentro la propiedad <em>sendForms</em> con el valor <em>true</em></p>
+
+<table><thead>
+<tr>
+<th>Parámetro</th>
+<th>Descripción</th>
+<th>Valores</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sendForms</td>
+<td>Activa o desactiva el envío automático de correos de formulario</td>
+<td><em>true</em> para activar y <em>false</em> para desactivar.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Para personalizar el correo que se envía al cliente final, visitar [este artículo.](https://help.regcheq.com/personalizaci%C3%B3n-de-correo)
+</aside>
+<h1 id='editar-transaccion'>Editar Transacción</h1><h2 id='editar-transaccion-con-id'>Editar Transacción con ID</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://external-api.regcheq.com/operation/apiKeyRegcheq</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="nx">payload</span><span class="p">);</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de payload de una actualización de Transacción con ID:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"operationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61d611e0577f892012122a06"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35671757"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nombre1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mn"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"180835768"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa3"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mn"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prueba0501-5"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hola"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cesión de Credito"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-19T18:40:57.799Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"transporter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marcos"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportFatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportMotherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Castro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportDni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165376536"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint se usa para editar una transacción en la aplicación de Regcheq, usando el id único de cada transacción. </p>
+
+<p>El id es generado aleatoriamente por la aplicación al ingresar una transacción nueva y es entregado en la respuesta de la API. </p>
+
+<p>Al editar una transacción se debe tomar en cuenta:</p>
+
+<ul>
+<li>Si en el payload viene un asociado que ya estaba incluido en la transacción original, entonces se actualizarán los datos de la ficha y del monto de este.</li>
+<li>Si en el payload viene un asociado que no estaba incluido en la transacción original, este se agreará a la transacción.</li>
+<li>Si en el payload <strong>no</strong> viene un asociado que estaba incluido en la transacción original, este será eliminado de la transacción.</li>
+</ul>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT https://external-api.regcheq.com/operation/apiKeyRegcheq</code></p>
+<h2 id='editar-transaccion-con-numero-de-referencia'>Editar Transacción con Número de Referencia</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://external-api.regcheq.com/operation/apiKeyRegcheq</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="nx">payload</span><span class="p">);</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de payload de una actualización de Transacción con Número de Referencia:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"operations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35671757"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nombre1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mn"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"180835768"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa3"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@aaa.cl"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mn"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Número_de_Referencia_único"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hola"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cesión de Credito"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-19T18:40:57.799Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"transporter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marcos"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportFatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportMotherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Castro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportDni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165376536"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint se usa para editar una transacción en la aplicación de Regcheq, usando el número de referencia de una transacción ingresada por API.</p>
+
+<aside class="warning">
+Para poder actualizar una transacción utilizando el número de referencia es requisito:
+
+1. Que la transacción original haya sido ingresada por API.
+2. Que el número de referencia de la transacción sea único dentro de la compañía.
+</aside>
+
+<p>Al editar una transacción se debe tomar en cuenta:</p>
+
+<ul>
+<li>Si en el payload viene un asociado que ya estaba incluido en la transacción original, entonces se actualizarán los datos de la ficha y del monto de este.</li>
+<li>Si en el payload viene un asociado que no estaba incluido en la transacción original, este se agreará a la transacción.</li>
+<li>Si en el payload <strong>no</strong> viene un asociado que estaba incluido en la transacción original, este será eliminado de la transacción.</li>
+</ul>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT https://external-api.regcheq.com/operation/apiKeyRegcheq</code></p>
+<h1 id='consultar-transaccion'>Consultar Transacción</h1><h2 id='consultar-transaccion-con-id'>Consultar Transacción con ID</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">axios</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://external-api.regcheq.com/operation/operationId/apiKeyRegcheq</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">api</span><span class="p">);</span>
+
+</code></pre></div>
+<blockquote>
+<p>Ejemplo de respuesta de una consulta:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"asociados"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35671757"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"montoFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$ 5000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"efectivo"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"efectiveAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fichaId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61d611e0577f892012122a05"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pep"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"scrappingProcess"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pepLevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61d611e0577f892012122a05"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35671757"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dniType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RUT"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nombre1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mn"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"personType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alexander@regcheq.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"companyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60e604a7bdace10b07822123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"listas"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35671757"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"personType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"onuResult"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"pdiResult"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"internResult"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"interpolResult"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ofacResult"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"gafiResult"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"rtpResult"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"keywordsResult"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"blacklistResult"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"lastChecked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-05T21:47:14.719Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"countries"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612799d0fd61b5c35215ed46"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"personId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61d611df577f892012122a04"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastDOFDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Jan 05 2022 18:47:14 GMT-0300 (hora de verano de Chile)"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastPEPDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pepLevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completada"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60e60520bdace10b07822124"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-05T21:47:12.218Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-06T19:00:41.118Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rut"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35671757"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"masculino"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"representativeDni"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"BFformStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOTREQUIRED"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ROE"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fichaStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQUIRED"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"transporter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marcos"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportFatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportMotherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Castro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportDni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165376536"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"countries"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612799d0fd61b5c35215ed46"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"DOFformStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FILLED"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"formDOF"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:4000/form-dof/61f16a9a7be823205dc8b94b/downloadsigned"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"180835768"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"efective"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"efectivo"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"montoFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$ 5000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"monto"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ficha"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61d73c5d577f892012122a18"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"180835768"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dniType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RUT"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"personType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"natural"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"companyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60e604a7bdace10b07822123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"listas"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nl">"personId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61d73c5c577f892012122a16"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"completada"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pepLevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-06T19:00:45.721Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"transporter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marcos"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportFatherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportMotherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Castro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportDni"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165376536"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transportCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"countries"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chile"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"612799d0fd61b5c35215ed46"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"pepLevel"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61d611e0577f892012122a06"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"codigo"</span><span class="p">:</span><span class="w"> </span><span class="mi">109</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"totalEfective"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"amountFormated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$ 5000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"companyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60e604a7bdace10b07822123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60e60520bdace10b07822124"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"leido"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"referenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaa"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"operation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"900"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apuesta"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"61d739c7d1788696745c4d64"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"requiredFile"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fileStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"generalFormStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"personsRUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"35671757"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"personsPepablesRUTS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"35671757"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"efectivo"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"divisa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transactionComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaa"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cesión de Credito"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-26T15:07:58.384Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"hasPep"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-05T03:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"finished"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-05T21:47:12.400Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-26T15:36:59.691Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"valorDolar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"841.63"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"valorUF"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31021.67"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint se usa para obtener todos los datos de una transacción, llamándola con el id de la transacción</p>
+
+<p>El id es generado aleatoriamente por la aplicación al ingresar una transacción nueva y es entregado en la respuesta de la API. </p>
+
+<p>Al consultar una transacción se puede obtener:</p>
+
+<ul>
+<li>La información de todos los asociados involucrados, incluyendo el monto aportado y los datos de la ficha.</li>
+<li>El estado de los formularios, para saber si han sido enviados, firmados u otros de los estados.</li>
+<li>El link para descargar el formulario, una vez que está firmado.</li>
+</ul>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>https://external-api.regcheq.com/operation/&lt;consultationID&gt;/apiKeyRegcheq</code></p>
+<h3 id='propiedades-de-los-formularios'>Propiedades de los Formularios</h3>
+<table><thead>
+<tr>
+<th>Propiedad</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DOFformStatus</td>
+<td>Formulario de Declaración de Origen de Fondos</td>
+</tr>
+<tr>
+<td>BFformStatus</td>
+<td>Formularo de de Declaración de Beneficiario Final</td>
+</tr>
+<tr>
+<td>pepDefaultFormStatus</td>
+<td>Formulario de Declaración de vínculo PEP</td>
+</tr>
+</tbody></table>
+<h3 id='estados-de-los-formularios'>Estados de los Formularios</h3>
+<table><thead>
+<tr>
+<th>Valor</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>NOTREQUIRED</td>
+<td>El formulario no es requerido</td>
+</tr>
+<tr>
+<td>REQUIRED</td>
+<td>El Formulario es requerido y no se ha solicitado</td>
+</tr>
+<tr>
+<td>SENT</td>
+<td>El formulario ha sido enviado</td>
+</tr>
+<tr>
+<td>FILLED</td>
+<td>El formulario ha sido rellenado y enviado, pero no ha sido firmado</td>
+</tr>
+<tr>
+<td>SIGNED</td>
+<td>El formulario ha sido firmado y está disponible para ser descargado</td>
+</tr>
+<tr>
+<td>VALID</td>
+<td>El formulario está vigente por un envío anterior desde otra transacción</td>
+</tr>
+</tbody></table>
 <h1 id='errores'>Errores</h1>
 <aside class="notice">
 En caso de que la consulta tenga algún problema, se mostrará un código de error.
